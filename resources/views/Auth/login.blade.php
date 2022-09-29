@@ -1,19 +1,5 @@
-<!--
-=========================================================
-* Argon Dashboard 2 - v2.0.4
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/argon-dashboard
-* Copyright 2022 Creative Tim (https://www.creative-tim.com)
-* Licensed under MIT (https://www.creative-tim.com/license)
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
--->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
   <meta charset="utf-8" />
@@ -77,12 +63,16 @@
               <div class="card card-plain">
                 <div class="card-header pb-0 text-start">
                   <h4 class="font-weight-bolder">Entrar</h4>
-                  <p class="mb-0">Ingrese o email</p>
+                    @if($errors->any())
+                    <div class="alert alert-warning text-white">{{$errors->first()}}</div>
+                    @endif
+
                 </div>
                 <div class="card-body">
-                  <form role="form">
+                  <form role="form" method="post" action="{{ route("login_post") }}">
+                    @csrf
                     <div class="mb-3">
-                      <input type="email" name="email" class="form-control form-control-lg" placeholder="Email" aria-label="Email">
+                      <input type="email" autofocus name="email" class="form-control form-control-lg" placeholder="Email" aria-label="Email">
                     </div>
                     <div class="mb-3">
                       <input type="password" name="password" class="form-control form-control-lg" placeholder="Senha" aria-label="Password">
@@ -92,7 +82,7 @@
                       <label class="form-check-label" for="rememberMe">Lembrar</label>
                     </div>
                     <div class="text-center">
-                      <button type="button" class="btn btn-lg btn-primary btn-lg w-100 mt-4 mb-0">Entrar</button>
+                      <button type="submit" class="btn btn-lg btn-primary btn-lg w-100 mt-4 mb-0">Entrar</button>
                     </div>
                   </form>
                 </div>

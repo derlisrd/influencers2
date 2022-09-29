@@ -27,7 +27,7 @@ class DatabaseSeeder extends Seeder
             "email"=>"admin@influencers2.com",
             "username"=>"admin",
             "password"=>Hash::make("admin1234"),
-            "approved"=>true,
+            "active"=>true,
             "type"=>1
         ]);
         // User::factory(10)->create();
