@@ -41,9 +41,9 @@
             <div class="collapse navbar-collapse" id="navigation">
               <ul class="navbar-nav mx-auto">
                 <li class="nav-item">
-                  <a class="nav-link me-2" href="{{ route('register') }}">
+                  <a class="nav-link me-2" href="{{ route('login') }}">
                     <i class="fas fa-user-circle opacity-6 text-dark me-1"></i>
-                    Nao tem conta? Cadastre-se
+                    Ja tem conta? Entre no sistema
                   </a>
                 </li>
               </ul>
@@ -62,34 +62,36 @@
             <div class="col-xl-4 col-lg-5 col-md-7 d-flex flex-column mx-lg-0 mx-auto">
               <div class="card card-plain">
                 <div class="card-header pb-0 text-start">
-                  <h4 class="font-weight-bolder">Entrar</h4>
+                  <h4 class="font-weight-bolder">Cadastro</h4>
                     @if($errors->any())
                     <div class="alert alert-warning text-white">{{$errors->first()}}</div>
                     @endif
 
                 </div>
                 <div class="card-body">
-                  <form role="form" method="post" action="{{ route("login_post") }}">
+                  <form role="form" method="post" action="{{ route("register_post") }}">
                     @csrf
+                    <div class="mb-3">
+                        <input autofocus name="name" class="form-control form-control-lg" placeholder="Nome">
+                    </div>
+                    <div class="mb-3">
+                        <input autofocus name="username" class="form-control form-control-lg" placeholder="Username" >
+                    </div>
                     <div class="mb-3">
                       <input type="email" autofocus name="email" class="form-control form-control-lg" placeholder="Email" aria-label="Email">
                     </div>
                     <div class="mb-3">
                       <input type="password" name="password" class="form-control form-control-lg" placeholder="Senha" aria-label="Password">
                     </div>
-                    <div class="form-check form-switch">
-                      <input class="form-check-input" type="checkbox" id="rememberMe">
-                      <label class="form-check-label" for="rememberMe">Lembrar</label>
-                    </div>
                     <div class="text-center">
-                      <button type="submit" class="btn btn-lg btn-primary btn-lg w-100 mt-4 mb-0">Entrar</button>
+                      <button type="submit" class="btn bg-gradient-dark w-100 my-4 mb-2">Cadastrar</button>
                     </div>
                   </form>
                 </div>
                 <div class="card-footer text-center pt-0 px-lg-2 px-1">
                   <p class="mb-4 text-sm mx-auto">
-                    Nao tem conta?
-                    <a href="{{ route("register") }}" class="text-primary text-gradient font-weight-bold">Cadastre-se</a>
+                    Ja tem conta ?
+                    <a href="{{ route("login") }}" class="text-primary text-gradient font-weight-bold">Entre no sistema</a>
                   </p>
                 </div>
               </div>
