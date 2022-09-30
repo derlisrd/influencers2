@@ -23,10 +23,8 @@ class PostController extends Controller
         $user_id = Auth::id();
 
         $domains = Domain::where('user_id',$user_id)->get();
-
         foreach($domains as $domain){
-
-            $URL = $domain['url']. "/wp-content/plugins/mjcdd/json.php";
+          $URL = $domain['url']. "/wp-content/plugins/mjcdd/json.php";
           $curl = curl_init();
           curl_setopt_array($curl, array(
             CURLOPT_URL => $URL,

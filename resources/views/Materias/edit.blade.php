@@ -33,6 +33,7 @@
                     </div>
                     <div class="col-md-12">
                         <button type="submit" class="btn btn-lg btn-primary">Salvar</button>
+                        <a class="btn btn-lg btn-default"href="{{ route('materias')}}">Cancelar</a>
                     </div>
                 </div>
             </div>

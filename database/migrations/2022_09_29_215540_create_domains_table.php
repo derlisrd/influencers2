@@ -18,6 +18,7 @@ class CreateDomainsTable extends Migration
             $table->bigInteger("user_id");
             $table->string("name");
             $table->string("url");
+            $table->string("url_http");
             $table->timestamps();
         });
     }

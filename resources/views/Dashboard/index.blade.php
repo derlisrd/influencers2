@@ -13,13 +13,12 @@
           <div class="row">
             <div class="col-8">
               <div class="numbers">
-                <p class="text-sm mb-0 text-uppercase font-weight-bold">Today's Money</p>
+                <p class="text-sm mb-0 text-uppercase font-weight-bold">Hoje</p>
                 <h5 class="font-weight-bolder">
-                  $53,000
+                  {{ $today_values ?? 0 }}
                 </h5>
                 <p class="mb-0">
-                  <span class="text-success text-sm font-weight-bolder">+55%</span>
-                  since yesterday
+                  Ingresos de hoje
                 </p>
               </div>
             </div>
@@ -38,13 +37,12 @@
           <div class="row">
             <div class="col-8">
               <div class="numbers">
-                <p class="text-sm mb-0 text-uppercase font-weight-bold">Today's Users</p>
+                <p class="text-sm mb-0 text-uppercase font-weight-bold">Impressao</p>
                 <h5 class="font-weight-bolder">
-                  2,300
+                  {{ $impressions ?? 0 }}
                 </h5>
                 <p class="mb-0">
-                  <span class="text-success text-sm font-weight-bolder">+3%</span>
-                  since last week
+                  Ultimas impressoes do día
                 </p>
               </div>
             </div>
@@ -63,13 +61,12 @@
           <div class="row">
             <div class="col-8">
               <div class="numbers">
-                <p class="text-sm mb-0 text-uppercase font-weight-bold">New Clients</p>
+                <p class="text-sm mb-0 text-uppercase font-weight-bold">Post</p>
                 <h5 class="font-weight-bolder">
-                  +3,462
+                  {{ $post_count ?? 0 }}
                 </h5>
                 <p class="mb-0">
-                  <span class="text-danger text-sm font-weight-bolder">-2%</span>
-                  since last quarter
+                  Quantidade de Post
                 </p>
               </div>
             </div>
@@ -88,18 +85,18 @@
           <div class="row">
             <div class="col-8">
               <div class="numbers">
-                <p class="text-sm mb-0 text-uppercase font-weight-bold">Sales</p>
+                <p class="text-sm mb-0 text-uppercase font-weight-bold">Pagos</p>
                 <h5 class="font-weight-bolder">
-                  $103,430
+                  {{ $last_payment ?? 0 }}
                 </h5>
                 <p class="mb-0">
-                  <span class="text-success text-sm font-weight-bolder">+5%</span> than last month
+                  Ultimo saque feito
                 </p>
               </div>
             </div>
             <div class="col-4 text-end">
               <div class="icon icon-shape bg-gradient-warning shadow-warning text-center rounded-circle">
-                <i class="ni ni-cart text-lg opacity-10" aria-hidden="true"></i>
+                <i class="ni ni-credit-card text-lg opacity-10" aria-hidden="true"></i>
               </div>
             </div>
           </div>
@@ -125,6 +122,7 @@
         </div>
       </div>
     </div>
+
     <div class="col-lg-5">
       <div class="card card-carousel overflow-hidden h-100 p-0">
         <div id="carouselExampleCaptions" class="carousel slide h-100" data-bs-ride="carousel">

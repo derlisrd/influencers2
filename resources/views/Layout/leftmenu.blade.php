@@ -12,7 +12,7 @@
     <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" href="{{ route('home') }}">
+          <a class="nav-link {{ (request()->is('/')) ? 'active' : '' }}" href="{{ route('home') }}">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
               <i class="ni ni-tv-2 text-primary text-sm opacity-10"></i>
             </div>
@@ -20,7 +20,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link " href="{{ route('domains') }}">
+          <a class="nav-link {{ (request()->is('domains*')) ? 'active' : '' }}" href="{{ route('domains') }}">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
               <i class="ni ni-building text-primary text-sm opacity-10"></i>
             </div>
@@ -28,7 +28,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link " href="{{ route('posts') }}">
+          <a class="nav-link {{ (request()->is('posts*')) ? 'active' : '' }}" href="{{ route('posts') }}">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
               <i class="ni ni-app text-primary text-sm opacity-10"></i>
             </div>
@@ -36,7 +36,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link " href="{{ route('materias') }}">
+          <a class="nav-link {{ (request()->is('materias*')) ? 'active' : '' }}" href="{{ route('materias') }}">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                 <i class="ni ni-single-copy-04 text-primary text-sm opacity-10"></i>
             </div>
@@ -47,7 +47,7 @@
           <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Conta</h6>
         </li>
         <li class="nav-item">
-          <a class="nav-link " href="{{ route("profile") }}">
+          <a class="nav-link {{ (request()->is('profile*')) ? 'active' : '' }}" href="{{ route("profile") }}">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
               <i class="ni ni-single-02 text-dark text-sm opacity-10"></i>
             </div>
@@ -57,7 +57,7 @@
 
         @if(Auth::user()->type == '1')
          <li class="nav-item">
-            <a class="nav-link " href="{{ route('users') }}">
+            <a class="nav-link {{ (request()->is('users*')) ? 'active' : '' }}" href="{{ route('users') }}">
               <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                 <i class="ni ni-single-02 text-dark text-sm opacity-10"></i>
               </div>
@@ -67,7 +67,7 @@
           @endif
 
         <li class="nav-item">
-            <a class="nav-link " href="../pages/tables.html">
+            <a class="nav-link {{ (request()->is('payments*')) ? 'active' : '' }}" href="{{ route('payments') }}">
               <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                 <i class="ni ni-credit-card text-dark text-sm opacity-10"></i>
               </div>
@@ -75,7 +75,7 @@
             </a>
           </li>
         <li class="nav-item">
-          <a class="nav-link " href="{{ route('socialnetworks') }}">
+          <a class="nav-link {{ (request()->is('socialnetworks*')) ? 'active' : '' }}" href="{{ route('socialnetworks') }}">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
               <i class="ni ni-world-2 text-dark text-sm opacity-10"></i>
             </div>
@@ -83,7 +83,7 @@
           </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link " href="{{ route('setting') }}">
+            <a class="nav-link {{ (request()->is('setting*')) ? 'active' : '' }}" href="{{ route('setting') }}">
               <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                 <i class="ni ni-settings text-dark text-sm opacity-10"></i>
               </div>

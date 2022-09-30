@@ -13,9 +13,14 @@ class CreatePaymentsTable extends Migration
      */
     public function up()
     {
+
         Schema::create('payments', function (Blueprint $table) {
             $table->id();
             $table->bigInteger("user_id");
+            $table->text('description');
+            $table->date('date_request')->useCurrent();
+            $table->date('date_paid')->nullable();
+            $table->boolean('status')->default(0); // 0 pending 1 done
             $table->timestamps();
         });
     }

@@ -8,6 +8,7 @@ use App\Http\Controllers\SettingController;
 use App\Http\Controllers\DomainController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\MateriaController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\SocialNetworkController;
 use Illuminate\Support\Facades\Route;
@@ -43,8 +44,12 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/materia_store',[MateriaController::class,'store'])->name('materia_store');
     Route::get('/materias/{id}',[MateriaController::class,'edit'])->name('materia_edit');
     Route::post('/materia_update',[MateriaController::class,'update'])->name('materia_update');
+    Route::get('/materia_destroy/{id}',[MateriaController::class,'destroy'])->name('materia_destroy');
 
     Route::get('/posts',[PostController::class,'index'])->name('posts');
+
+    Route::get('/payments',[PaymentController::class,'index'])->name('payments');
+    Route::get('/payment/request',[PaymentController::class,'payment_request'])->name('payment_request');
 
     Route::get('/users',[UserController::class,'index'])->name('users');
 

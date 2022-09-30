@@ -55,6 +55,7 @@
                                     </td>
                                     <td class="align-middle">
                                         <a href="{{ route('materia_edit',$dato->id)}}" class="badge badge-sm bg-success">Editar</a>
+                                        <a href="{{ route('materia_destroy',$dato->id)}}" class="badge badge-sm bg-danger">Apagar</a>
                                     </td>
                                 </tr>
                             @endforeach

@@ -18,10 +18,8 @@
                         <table class="table align-items-center mb-0">
                             <thead>
                                 <tr>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nome
-                                    </th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">URL
-                                    </th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nome</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">URL</th>
                                     <th class="text-secondary opacity-7"></th>
                                 </tr>
                             </thead>
@@ -39,7 +37,7 @@
                                             <div class="d-flex px-2 py-1">
                                                 <div class="d-flex flex-column justify-content-center">
                                                     <h6 class="mb-0 text-sm">{{ $dato->name }}</h6>
-                                                    <p class="text-xs text-secondary mb-0">{{ $dato->url }}</p>
+                                                    <p class="text-xs text-secondary mb-0">{{ $dato->url_http }}</p>
                                                 </div>
                                             </div>
                                         </td>
@@ -84,7 +82,7 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="url" class="form-label text-dark">URL: </label>
-                                    <input type="text" name="url" class="form-control form-control-lg" placeholder="https://dominio.com/">
+                                    <input type="text" name="url" class="form-control form-control-lg" placeholder="dominio.com/">
                                 </div>
                             </div>
                         </div>

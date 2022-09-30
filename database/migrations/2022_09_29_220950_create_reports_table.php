@@ -16,6 +16,13 @@ class CreateReportsTable extends Migration
         Schema::create('reports', function (Blueprint $table) {
             $table->id();
             $table->bigInteger("user_id");
+            $table->bigInteger("domain_id");
+            $table->bigInteger("impressions");
+            $table->bigInteger("clicks");
+            $table->float("ctr");
+            $table->float("revenue");
+            $table->float('cpm');
+            $table->date('date');
             $table->timestamps();
         });
     }
