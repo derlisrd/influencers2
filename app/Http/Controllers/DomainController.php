@@ -6,7 +6,7 @@ use App\Models\Domain;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
+use GuzzleHttp\Client;
 class DomainController extends Controller
 {
 
@@ -18,19 +18,43 @@ class DomainController extends Controller
     }
     public function store(Request $request)
     {
-        $user_id = Auth::id();
+
+
+        $protocol =  "http://";
+
+        if (request()->secure())
+        {
+         $protocol =  "https://";
+        }
+       $user_id = Auth::id();
          $request->validate([
             'name'=>'required',
             'url'=>'required'
         ]);
 
         $url = $request->url;
-        $url_http = "https://".$url;
+        $url_http = $protocol.$url;
         $datos = ['user_id' => $user_id,'name'=>$request->name,'url'=>$url,'url_http'=>$url_http];
+        $domain = Domain::create($datos);
 
-       $domain = Domain::create($datos);
-
-
+        $URL = $url_http."/wp-content/plugins/mjcdd/json.php";
+        $client = new Client();
+        $response = $client->get($URL);
+        $array = json_decode($response->getBody(),true);
+        $datas = ($array['item']);
+          foreach($datas as $d){
+            $newpost = [
+                'user_id'=>$user_id,
+                'domain_id'=>$domain['id'],
+                'post_id'=>$d['id'],
+                'title'=>$d['title'],
+                'href'=>$d['link']['href'],
+                'image'=>$d['images']['url'],
+                'category'=>$d['category'],
+                'date'=>$d['date']['published']
+            ];
+            Post::create($newpost);
+            }
 
        return redirect()->route('domains');
     }
