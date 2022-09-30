@@ -72,10 +72,10 @@
                   <form role="form" method="post" action="{{ route("login_post") }}">
                     @csrf
                     <div class="mb-3">
-                      <input type="email" autofocus name="email" class="form-control form-control-lg" placeholder="Email" aria-label="Email">
+                      <input type="email" value="{{ old('email') }}" autofocus name="email" class="form-control form-control-lg" placeholder="Email" aria-label="Email">
                     </div>
                     <div class="mb-3">
-                      <input type="password" name="password" class="form-control form-control-lg" placeholder="Senha" aria-label="Password">
+                      <input type="password"  name="password" class="form-control form-control-lg" placeholder="Senha" aria-label="Password">
                     </div>
                     <div class="form-check form-switch">
                       <input class="form-check-input" type="checkbox" id="rememberMe">

@@ -15,11 +15,9 @@
                 </div>
                 @endif
                 @if ($errors->any())
-                <ul>
                     @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
+                        <p>{{ $error }}</p>
                     @endforeach
-                </ul>
                 @endif
             </div>
             <div class="card-body pt-4 p-3">

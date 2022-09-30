@@ -19,19 +19,24 @@ class LoginController extends Controller
 
     public function login(Request $request)
     {
-        $credentials = $request->only('email', 'password');
+        $credentials = $request->validate([
+            'email' => ['required', 'email'],
+            'password' => ['required'],
+        ]);
 
-        if (Auth::attempt($credentials)) {
-            if(!Auth::user()->active) {
-                Auth::logout();
-                return redirect('login')->withErrors(['Sua conta esta inativa']);
-            }
+        $email = $credentials['email'];
+        $password = $credentials['password'];
+
+        if (Auth::attempt(['email' => $email, 'password' => $password, 'active' => 1])) {
+            $request->session()->regenerate();
             return redirect()->route('home');
         }
-        else{
-           return redirect()->back()->withErrors(['msg' => 'Erros de credenciais']);
-        }
+
+        return back()->withErrors([
+            'email' => 'The provided credentials do not match our records.',
+        ])->onlyInput('email');
     }
+
 
     public function logout(){
         Auth::logout();

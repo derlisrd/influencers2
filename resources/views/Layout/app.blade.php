@@ -41,7 +41,7 @@
   <script src="{{ URL("assets/js/plugins/perfect-scrollbar.min.js") }}"></script>
   <script src="{{ URL("assets/js/plugins/smooth-scrollbar.min.js") }}"></script>
   <script src="{{ URL("assets/js/plugins/chartjs.min.js") }}"></script>
-
+  <script src="{{URL('assets/sa')}}/sweetalert.min.js"></script>
   @yield('scripts')
 
   <script>
