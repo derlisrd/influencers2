@@ -17,7 +17,7 @@
 
                 <div class="card-body pt-2">
                   <span class="text-gradient text-primary text-uppercase text-xs font-weight-bold my-2">Link</span>
-                  <a href="javascript:;" target="_blank" class="card-title h6 d-block text-darker">
+                  <a href="javascript:;" class="card-title h6 d-block text-darker">
                     {{ substr($post->title,0,30). "..." }}
                   </a>
                   <p class="card-description mb-4">
@@ -26,7 +26,7 @@
 
                     <div class="name ps-3">
                       @foreach ($links as $link)
-                        <a href="#" onclick="copiarAlPortapapeles('{{ $link->title }}','epa')">{{ $link->title }}</a>
+                        <a href="#" onclick="copiarAlPortapapeles('{{ $link->title }}','{{ $post->domain->url_http}}','{{ $post->post_id }}')">{{ $link->title }}</a>
                         <span> </span>
                       @endforeach
                       <div class="stats">
@@ -40,8 +40,10 @@
     @endforeach
 </div>
 <script>
-    function copiarAlPortapapeles(link,title) {
-        swal(title, link);
+    function copiarAlPortapapeles(title,link,id) {
+        let user_id = {{ Auth::id() }}
+        let url = link+'/?p='+id+'&utm_source='+user_id+'&utm_medium='+id+'&utm_campaign=influencers'
+        swal(title, url);
     }
 </script>
 @endsection
