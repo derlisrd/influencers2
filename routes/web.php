@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AccountController;
+use App\Http\Controllers\Cron\ReportsController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
@@ -56,4 +57,4 @@ Route::middleware(['auth'])->group(function () {
     Route::get("/logout",[LoginController::class,'logout'])->name("logout");
 });
 
-Route::get('/store_all_post',[PostController::class,'store_all_post']);
+Route::get('/reports',[ReportsController::class,'getReports']);

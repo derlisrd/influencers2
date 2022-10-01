@@ -42,21 +42,21 @@
   <script src="{{ URL("assets/js/plugins/smooth-scrollbar.min.js") }}"></script>
   <script src="{{ URL("assets/js/plugins/chartjs.min.js") }}"></script>
   <script src="{{URL('assets/sa')}}/sweetalert.min.js"></script>
-  @yield('scripts')
 
   <script>
-    var win = navigator.platform.indexOf('Win') > -1;
-    if (win && document.querySelector('#sidenav-scrollbar')) {
-      var options = {
-        damping: '0.5'
-      }
-      Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
-    }
-  </script>
+      var win = navigator.platform.indexOf('Win') > -1;
+      if (win && document.querySelector('#sidenav-scrollbar')) {
+          var options = {
+              damping: '0.5'
+            }
+            Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+        }
+        </script>
   <!-- Github buttons -->
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
-  <script src="{{ URL('assets/js/argon-dashboard.min.js?v=2.0.4') }}"></script>
+  <script src="{{ URL('assets/js/argon-dashboard.js') }}"></script>
+  @yield('scripts')
 </body>
 
 </html>

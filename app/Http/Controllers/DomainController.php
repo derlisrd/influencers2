@@ -18,19 +18,14 @@ class DomainController extends Controller
     }
     public function store(Request $request)
     {
-
-
-        $protocol =  "http://";
-
-        if (request()->secure())
-        {
-         $protocol =  "https://";
-        }
-       $user_id = Auth::id();
          $request->validate([
             'name'=>'required',
-            'url'=>'required'
+            'url'=>'required|unique:domains,url'
         ]);
+
+        $user_id = Auth::id();
+        $protocol =  "http://";
+        if (request()->secure()) $protocol =  "https://";
 
         $url = $request->url;
         $url_http = $protocol.$url;
@@ -55,44 +50,9 @@ class DomainController extends Controller
             ];
             Post::create($newpost);
             }
-
        return redirect()->route('domains');
     }
 
-    public function getPost ($id){
-        $domain = Domain::find($id);
-        $user_id = Auth::id();
-        $URL = $domain->url."/wp-content/plugins/mjcdd/json.php";
-        $curl = curl_init();
-          curl_setopt_array($curl, array(
-            CURLOPT_URL => $URL,
-            CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_ENCODING => '',
-            CURLOPT_MAXREDIRS => 10,
-            CURLOPT_TIMEOUT => 0,
-            CURLOPT_FOLLOWLOCATION => true,
-            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-            CURLOPT_CUSTOMREQUEST => 'GET',
-          ));
-          $response = curl_exec($curl);
-          curl_close($curl);
-          $array = json_decode($response,true);
-          print_r($array);
-          /* $datas = ($array['item']);
-          foreach($datas as $d){
-            $newpost = [
-                'user_id'=>$user_id,
-                'domain_id'=>$domain['id'],
-                'post_id'=>$d['id'],
-                'title'=>$d['title'],
-                'href'=>$d['link']['href'],
-                'image'=>$d['images']['url'],
-                'category'=>$d['category'],
-                'date'=>$d['date']['published']
-            ];
-            Post::create($newpost);
-            } */
-    }
 
 
     public function edit($id)

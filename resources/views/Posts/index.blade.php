@@ -26,7 +26,7 @@
 
                     <div class="name ps-3">
                       @foreach ($links as $link)
-                        <a href="#" onclick="copiarAlPortapapeles('{{ $link->title }}','{{ $post->domain->url_http}}','{{ $post->post_id }}')">{{ $link->title }}</a>
+                        <a href="javascript:;" onclick="copiarAlPortapapeles('{{ $link->title }}','{{ $post->domain->url_http}}','{{ $post->post_id }}')">{{ $link->title }}</a>
                         <span> </span>
                       @endforeach
                       <div class="stats">
@@ -39,6 +39,8 @@
         </div>
     @endforeach
 </div>
+@endsection
+@section('scripts')
 <script>
     function copiarAlPortapapeles(title,link,id) {
         let user_id = {{ Auth::id() }}
