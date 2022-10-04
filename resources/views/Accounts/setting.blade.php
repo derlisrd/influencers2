@@ -1,6 +1,6 @@
 @extends('Layout.app')
 @section('title', 'Configuraçao')
-@section('title2', 'Configuraçao da conta')
+@section('title2', 'Configuraçao da empresa')
 @section('main')
 
 
@@ -9,7 +9,7 @@
     @csrf
     <div class="card">
         <div class="card-header pb-0 px-3">
-            <h6>Informaçao do usuario</h6>
+            <h6>Configuraçao da empresa</h6>
             @if(Session::has('msg'))
                 <div class="alert alert-success text-white" role="alert">
                     {{ Session::get('msg') }}
