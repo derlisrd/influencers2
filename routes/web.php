@@ -28,6 +28,8 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/profile',[AccountController::class,'profile'])->name('profile');
     Route::post('/profile',[AccountController::class,'profile_post'])->name('profile_post');
+    Route::get('/profile/password',[AccountController::class,'profile_password'])->name('profile_password');
+    Route::post('/profile/password_post',[AccountController::class,'profile_password_post'])->name('profile_password_post');
 
     Route::get('/socialnetworks',[SocialNetworkController::class,'socialnetworks'])->name('socialnetworks');
     Route::get('/socialnetworks/create',[SocialNetworkController::class,'socialnetworks_create'])->name('socialnetworks_create');
@@ -53,6 +55,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/payment/request',[PaymentController::class,'payment_request'])->name('payment_request');
 
     Route::get('/users',[UserController::class,'index'])->name('users');
+    Route::get('/user/active/{id}',[UserController::class,'user_active'])->name('user_active');
+    Route::get('/user/desactive/{id}',[UserController::class,'user_desactive'])->name('user_desactive');
 
     Route::get("/logout",[LoginController::class,'logout'])->name("logout");
 });

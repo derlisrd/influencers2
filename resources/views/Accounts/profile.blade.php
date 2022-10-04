@@ -9,6 +9,7 @@
         <div class="card">
             <div class="card-header pb-0 px-3">
                 <h6>Informaçao do usuario</h6>
+                <a href="{{ route('profile_password') }}" class="btn btn-secondary">Trocar minha senha</a>
                 @if (Session::has('msg'))
                 <div class="alert alert-success" role="alert">
                     {{ Session::get('msg') }}
