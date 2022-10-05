@@ -23,6 +23,8 @@ class CreateReportsTable extends Migration
             $table->float("revenue");
             $table->float('cpm');
             $table->date('date');
+            $table->string('criteria_name')->nullable();
+            $table->string('criteria_value')->nullable();
             $table->timestamps();
         });
     }

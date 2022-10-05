@@ -24,9 +24,25 @@ class PaymentController extends Controller
         if($setting->count()<1){
             return view ('Payments.requestfail');
         }
-
-
-
         return view ('Payments.request');
+    }
+
+
+    public function payment_request_post(Request $request){
+
+        $request->validate([
+            'amount' => ['required'],
+        ]);
+
+
+        Payment::create([
+            'date_request'=>date('Y-m-d'),
+            'user_id'=>Auth::id(),
+            'description'=>'Requisiçao de saque',
+            'amount'=>$request->amount
+        ]);
+
+        return redirect()->route('payments');
+
     }
 }

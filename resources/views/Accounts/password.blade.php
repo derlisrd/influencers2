@@ -26,8 +26,7 @@
                         <div class="mb-3">
                             <label for="oldPasswordInput" class="form-label">Senha antiga</label>
                             <input autofocus name="old_password" type="password"
-                                class="form-control @error('old_password') is-invalid @enderror" id="oldPasswordInput"
-                                placeholder="Senha antiga">
+                                class="form-control @error('old_password') is-invalid @enderror" id="old_password" placeholder="Senha antiga">
                             @error('old_password')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror

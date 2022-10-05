@@ -7,6 +7,8 @@
         <div class="float-start">
           <h5 class="mt-3 mb-0">Configuraçao</h5>
             <p>{{ auth()->user()->name }}</p>
+
+            <a class="btn btn-danger" href="{{ route('logout') }}"> <i class="ni ni-button-power text-white text-sm opacity-10"></i> Sair</a>
         </div>
         <div class="float-end mt-4">
           <button class="btn btn-link text-dark p-0 fixed-plugin-close-button">

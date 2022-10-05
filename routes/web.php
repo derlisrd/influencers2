@@ -53,6 +53,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/payments',[PaymentController::class,'index'])->name('payments');
     Route::get('/payment/request',[PaymentController::class,'payment_request'])->name('payment_request');
+    Route::post('/payment/request',[PaymentController::class,'payment_request_post'])->name('payment_request_post');
 
     Route::get('/users',[UserController::class,'index'])->name('users');
     Route::get('/user/active/{id}',[UserController::class,'user_active'])->name('user_active');

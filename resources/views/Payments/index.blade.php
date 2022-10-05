@@ -18,7 +18,9 @@
                         <thead>
                             <tr>
                                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Descripçao</th>
-                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Data</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Monto</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Data de requisiçao</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Data de saque</th>
                                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Status</th>
                                 <th class="text-secondary opacity-7"></th>
                             </tr>
@@ -31,15 +33,28 @@
                                         <div class="d-flex px-2 py-1">
                                             <div class="d-flex flex-column justify-content-center">
                                                 <h6 class="mb-0 text-sm">{{ $dato->description }}</h6>
-                                                <p class="text-xs text-secondary mb-0">{{ $dato->url }}</p>
                                             </div>
                                         </div>
                                     </td>
                                     <td>
-                                        <p class="text-xs font-weight-bold mb-0">{{ $dato->date }}</p>
+                                        <div class="d-flex px-2 py-1">
+                                            <div class="d-flex flex-column justify-content-center">
+                                                <h6 class="mb-0 text-sm">{{ $dato->amount }}</h6>
+                                            </div>
+                                        </div>
                                     </td>
                                     <td>
-                                        <p class="text-xs font-weight-bold mb-0">{{ $dato->status }}</p>
+                                        <p class="text-xs font-weight-bold mb-0">{{ $dato->date_request }}</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-xs font-weight-bold mb-0">{{ $dato->date_paid ?? '' }}</p>
+                                    </td>
+                                    <td>
+                                        @if($dato->status ==1)
+                                        <span class="badge badge-sm bg-gradient-success">Pago</span>
+                                        @else
+                                        <span class="badge badge-sm bg-gradient-warning">Pendente...</span>
+                                        @endif
                                     </td>
                                     <td class="align-middle">
 

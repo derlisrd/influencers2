@@ -1,17 +1,45 @@
 <?php
 
-namespace App\Http\Controllers\Cron;
+namespace App\Console\Commands;
 
-use App\Http\Controllers\Controller;
 use App\Models\Domain;
 use App\Models\Report;
 use GuzzleHttp\Client;
-use Illuminate\Http\Request;
+use Illuminate\Console\Command;
 
-class ReportsController extends Controller
+class CronGam extends Command
 {
-    public function getReports(){
+    /**
+     * The name and signature of the console command.
+     *
+     * @var string
+     */
+    protected $signature = 'getPost:cron';
 
+    /**
+     * The console command description.
+     *
+     * @var string
+     */
+    protected $description = 'Get post do gam';
+
+    /**
+     * Create a new command instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        parent::__construct();
+    }
+
+    /**
+     * Execute the console command.
+     *
+     * @return int
+     */
+    public function handle()
+    {
         $URL =  env('END_POINT_GAM');
         $client = new Client();
         $response = $client->get($URL);
@@ -58,6 +86,5 @@ class ReportsController extends Controller
                 }
             }
         }
-
     }
 }
