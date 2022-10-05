@@ -16,7 +16,7 @@ class DashboardController extends Controller
         $user_id = Auth::id();
         $post_count = Post::where('user_id',$user_id)->count();
 
-        $impressions = 1200;
+
         $last_payment = Payment::where('user_id',$user_id)->where('status',1)->orderBy('updated_at', 'desc')->first();
         $last_payment = $last_payment->amount ?? 0;
 
@@ -24,12 +24,14 @@ class DashboardController extends Controller
         $today_report = Report::where('user_id',$user_id)->where('date',$today)->sum('revenue');
         $today_impressions = Report::where('user_id',$user_id)->where('date',$today)->sum('impressions');
 
+        $last_posts = Post::where('user_id',$user_id)->orderBy('id', 'desc')->limit(5)->get();
+
         $data = [
             "today_values"=> $today_report ?? 0,
             "post_count"=>$post_count,
             "impressions"=>$today_impressions ?? 0,
             "last_payment"=>$last_payment,
-
+            "last_posts"=>$last_posts
         ];
 
         return view('Dashboard.index',$data);
