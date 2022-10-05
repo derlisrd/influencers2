@@ -66,7 +66,11 @@
                     @if($errors->any())
                     <div class="alert alert-warning text-white">{{$errors->first()}}</div>
                     @endif
-
+                    @if(Session::has('msg'))
+                    <div class="alert alert-success text-white" role="alert">
+                        {{ Session::get('msg') }}
+                    </div>
+                @endif
                 </div>
                 <div class="card-body">
                   <form role="form" method="post" action="{{ route("login_post") }}">
