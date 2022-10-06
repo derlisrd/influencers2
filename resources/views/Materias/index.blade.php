@@ -10,7 +10,7 @@
                 <h6>Materias</h6>
                 <button type="button" class="btn bg-gradient-primary" data-bs-toggle="modal"
                     data-bs-target="#modal_new_domain">
-                    Adicionar
+                    Solicitar
                 </button>
             </div>
             <div class="card-body px-0 pt-0 pb-2">

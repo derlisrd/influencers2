@@ -72,32 +72,17 @@
                   <form role="form" method="post" action="{{ route("register_post") }}">
                     @csrf
                     <div class="mb-3">
-                        <input autofocus value="{{ old('name') }}" name="name" class="form-control form-control-lg" placeholder="Nome">
+                        <input autofocus value="{{ old("name") }}" name="name" class="form-control form-control-lg" placeholder="Nome">
                     </div>
                     <div class="mb-3">
-                        <input autofocus value="{{ old('username') }}" name="username" class="form-control form-control-lg" placeholder="Username" >
+                        <input name="username" value="{{ old("username") }}"  class="form-control form-control-lg @error('username') is-invalid @enderror" placeholder="Username" >
                     </div>
                     <div class="mb-3">
-                      <input type="email" value="{{ old('email') }}" autofocus name="email" class="form-control form-control-lg" placeholder="Email" aria-label="Email">
+                      <input type="email" value="{{ old("email") }}"    name="email" class="form-control form-control-lg @error('email') is-invalid @enderror" placeholder="Email" aria-label="Email">
                     </div>
                     <div class="mb-3">
-                      <input type="password" name="password" class="form-control form-control-lg" placeholder="Senha" aria-label="Password">
+                      <input type="password" name="password" class="form-control form-control-lg @error('password') is-invalid @enderror" placeholder="Senha" aria-label="Password">
                     </div>
-                    <div id="_redes">
-                        <div class="mb-3">
-                            <input name="title[]" placeholder="Titulo: youtube, instagram..." autocomplete="off" class="form-control form-control-lg">
-                        </div>
-                        <div class="mb-3">
-                            <input name="url[]" placeholder="Link: youtube.com/user" autocomplete="off" class="form-control form-control-lg">
-                        </div>
-                        <div class="mb-3">
-                            <input name="username[]" placeholder="Usuario: user" autocomplete="off" class="form-control form-control-lg">
-                        </div>
-                    </div>
-
-                    <div class="mb-3 mt-3">
-                        <button type="button" class="btn btn-primary" onclick="adicionar_redes()">Adicionar mais redes</button>
-                      </div>
 
                     <div class="text-center">
                       <button type="submit" class="btn bg-gradient-dark w-100 my-4 mb-2">Cadastrar</button>
@@ -127,37 +112,6 @@
   <!--   Core JS Files   -->
   <script src="{{ URL('/assets/js/core/popper.min.js')}}"></script>
   <script src="{{ URL('/assets/js/core/bootstrap.min.js')}}"></script>
-  <script>
-    function adicionar_redes(){
-
-
-
-        var x = document.createElement("input");
-        x.setAttribute("type", "text");
-        x.setAttribute("name", "title[]");
-        x.setAttribute("placeholder", "Titulo: youtube, instagram...");
-        x.setAttribute("class", "form-control form-control-lg mb-3");
-
-        document.getElementById("_redes").appendChild(x);
-
-        var y = document.createElement("input");
-        y.setAttribute("type", "text");
-        y.setAttribute("name", "url[]");
-        y.setAttribute("placeholder", "Titulo: youtube, instagram...");
-        y.setAttribute("class", "form-control form-control-lg mb-3");
-
-        document.getElementById("_redes").appendChild(y);
-
-        var z = document.createElement("input");
-        z.setAttribute("type", "text");
-        z.setAttribute("name", "username[]");
-        z.setAttribute("placeholder", "Titulo: youtube, instagram...");
-        z.setAttribute("class", "form-control form-control-lg mb-3");
-
-        document.getElementById("_redes").appendChild(z);
-
-    }
-  </script>
 </body>
 
 </html>

@@ -26,8 +26,8 @@
 
                     <div class="name ps-3">
                       @foreach ($links as $link)
-                        <a href="javascript:;" onclick="copiarAlPortapapeles('{{ $link->title }}','{{ $post->domain->url_http}}','{{ $post->post_id }}')">{{ $link->title }}</a>
-                        <span> </span>
+                        <a href="javascript:;" class="badge bg-primary" onclick="copiarAlPortapapeles('{{ $link->title }}','{{ $post->domain->url_http}}','{{ $post->post_id }}')">{{ $link->title }}</a>
+
                       @endforeach
                       <div class="stats">
                         <small>{{ $post->date }}</small>
@@ -44,7 +44,7 @@
 <script>
     function copiarAlPortapapeles(title,link,id) {
         let user_id = {{ Auth::id() }}
-        let url = link+'/?p='+id+'&utm_source='+user_id+'&utm_medium='+id+'&utm_campaign=influencers'
+        let url = link+'/?p='+id+'&utm_source='+user_id+'&utm_medium='+title+'&utm_campaign=influencers'
         swal(title, url);
     }
 </script>

@@ -18,6 +18,7 @@ class CreateSettingsTable extends Migration
             $table->bigInteger("user_id");
             $table->string("name");
             $table->string("doc");
+            $table->string("tel")->nullable();
             $table->float("minimal_payment")->nullable();
             $table->string("pix")->nullable();
             $table->float("raveshare")->nullable();

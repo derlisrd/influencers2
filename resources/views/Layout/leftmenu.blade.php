@@ -19,6 +19,7 @@
             <span class="nav-link-text ms-1">Dashboard</span>
           </a>
         </li>
+        @if(Auth::user()->type == '1')
         <li class="nav-item">
           <a class="nav-link {{ (request()->is('domains*')) ? 'active' : '' }}" href="{{ route('domains') }}">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
@@ -27,6 +28,7 @@
             <span class="nav-link-text ms-1">Dominios</span>
           </a>
         </li>
+        @endif
         <li class="nav-item">
           <a class="nav-link {{ (request()->is('posts*')) ? 'active' : '' }}" href="{{ route('posts') }}">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
@@ -82,6 +84,7 @@
             <span class="nav-link-text ms-1">Redes</span>
           </a>
         </li>
+        @if(Auth::user()->type == '1')
         <li class="nav-item">
             <a class="nav-link {{ (request()->is('setting*')) ? 'active' : '' }}" href="{{ route('setting') }}">
               <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
@@ -90,7 +93,7 @@
               <span class="nav-link-text ms-1">Config</span>
             </a>
           </li>
-
+          @endif
       </ul>
     </div>
     <div class="sidenav-footer mx-3 ">

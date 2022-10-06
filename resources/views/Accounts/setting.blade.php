@@ -41,6 +41,12 @@
                 </div>
                 <div class="col-md-12">
                     <div class="form-group">
+                        <label for="tel" class="form-label text-dark">Tel: </label>
+                        <input name="tel" value="{{ $data->tel ?? '' }}" class="form-control form-control-lg" placeholder="Documento">
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="form-group">
                         <label for="minimal_payment" class="form-label text-dark">Pago minimo (100 USS): </label>
                         <input name="minimal_payment"  type="number" value="{{ $data->minimal_payment ?? '' }}" class="form-control form-control-lg" placeholder="Pago minimo">
                     </div>

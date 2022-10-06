@@ -20,7 +20,9 @@ Route::view('/login','Auth.login')->name('login')->middleware("guest");
 Route::post('/login',[LoginController::class,'login'])->name('login_post')->middleware("guest");
 
 Route::view('/register','Auth.register')->name('register')->middleware("guest");
-Route::post('/register',[RegisterController::class,'register'])->name('register_post');
+Route::post('/register',[RegisterController::class,'register'])->name('register_post')->middleware("guest");
+Route::get('/register/step2',[RegisterController::class,'register_step2'])->name('register_step2')->middleware("guest");
+Route::post('/register/step2',[RegisterController::class,'register_step2_post'])->name('register_step2_post')->middleware("guest");
 
 Route::middleware(['auth'])->group(function () {
 

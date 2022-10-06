@@ -16,9 +16,9 @@
   <link href="{{ URL("/assets/css/nucleo-svg.css") }}" rel="stylesheet" />
   <!-- Font Awesome Icons -->
   <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
-  <link href="{{ URL("") }}/assets/css/nucleo-svg.css" rel="stylesheet" />
+  <link href="{{ URL("assets/css/nucleo-svg.css") }}" rel="stylesheet" />
   <!-- CSS Files -->
-  <link id="pagestyle" href="../assets/css/argon-dashboard.css?v=2.0.4" rel="stylesheet" />
+  <link id="pagestyle" href="{{ URL('assets/css/argon-dashboard.css') }}" rel="stylesheet" />
 </head>
 
 <body class="">
@@ -41,9 +41,9 @@
             <div class="collapse navbar-collapse" id="navigation">
               <ul class="navbar-nav mx-auto">
                 <li class="nav-item">
-                  <a class="nav-link me-2" href="{{ route('register') }}">
+                  <a class="nav-link me-2" href="{{ route('login') }}">
                     <i class="fas fa-user-circle opacity-6 text-dark me-1"></i>
-                    Nao tem conta? Cadastre-se
+                    Ja tem conta? Entre no sistema
                   </a>
                 </li>
               </ul>
@@ -62,45 +62,45 @@
             <div class="col-xl-4 col-lg-5 col-md-7 d-flex flex-column mx-lg-0 mx-auto">
               <div class="card card-plain">
                 <div class="card-header pb-0 text-start">
-                  <h4 class="font-weight-bolder">Entrar</h4>
+                  <h4 class="font-weight-bolder">Adicionar redes sociais</h4>
                     @if($errors->any())
-                    <div class="alert alert-warning text-white">{{$errors->first()}}</div>
+                        <div class="alert alert-warning text-white">{{$errors->first()}}</div>
                     @endif
-                    @if(Session::has('messageactive'))
-                    <div class="alert alert-success text-white" role="alert">
-                        {{ Session::get('messageactive') }}
-                    </div>
-                    @endif
+
                 </div>
                 <div class="card-body">
-                  <form role="form" method="post" action="{{ route("login_post") }}">
+                  <form method="post" action="{{ route("register_step2_post") }}">
                     @csrf
-                    <div class="mb-3">
-                      <input type="email" value="{{ old('email') }}" autofocus name="email" class="form-control form-control-lg" placeholder="Email" aria-label="Email">
-                    </div>
-                    <div class="mb-3">
-                      <input type="password"  name="password" class="form-control form-control-lg" placeholder="Senha" aria-label="Password">
-                    </div>
-                    <div class="form-check form-switch">
-                      <input class="form-check-input" type="checkbox" id="rememberMe">
-                      <label class="form-check-label" for="rememberMe">Lembrar</label>
-                    </div>
+
+                        <div id="_redes">
+                        <input name="title[]" autofocus   class="mb-3 form-control form-control-lg" placeholder="Titulo: Youtube, Instagram..." >
+
+
+                        <input name="url[]"  class="mb-3 form-control form-control-lg" placeholder="Link: youtube.com/user" >
+
+
+                        <input name="username[]" class="mb-3 form-control form-control-lg" placeholder="Usuario: user" >
+                        </div>
+
+                        <button class="btn btn-primary" type="button" onclick="adicionar_redes()">Adicionar mais</button>
+
+
                     <div class="text-center">
-                      <button type="submit" class="btn btn-lg btn-primary btn-lg w-100 mt-4 mb-0">Entrar</button>
+                      <button type="submit" class="btn bg-gradient-dark w-100 my-4 mb-2">Completar</button>
                     </div>
                   </form>
                 </div>
                 <div class="card-footer text-center pt-0 px-lg-2 px-1">
                   <p class="mb-4 text-sm mx-auto">
-                    Nao tem conta?
-                    <a href="{{ route("register") }}" class="text-primary text-gradient font-weight-bold">Cadastre-se</a>
+                    Ja tem conta ?
+                    <a href="{{ route("login") }}" class="text-primary text-gradient font-weight-bold">Entre no sistema</a>
                   </p>
                 </div>
               </div>
             </div>
             <div class="col-6 d-lg-flex d-none h-100 my-auto pe-0 position-absolute top-0 end-0 text-center justify-content-center flex-column">
               <div class="position-relative bg-gradient-primary h-100 m-3 px-7 border-radius-lg d-flex flex-column justify-content-center overflow-hidden" >
-                <span class="mask bg-gradient-danger"></span>
+                <span class="mask bg-gradient-primary opacity-6"></span>
                 <h4 class="mt-5 text-white font-weight-bolder position-relative">"Influencers 2.0"</h4>
                 <p class="text-white position-relative">Influencers e um sistema de administraçao de blogs especialmente para influencers, youtubers, o influenciadores da midia.</p>
               </div>
@@ -113,7 +113,29 @@
   <!--   Core JS Files   -->
   <script src="{{ URL('/assets/js/core/popper.min.js')}}"></script>
   <script src="{{ URL('/assets/js/core/bootstrap.min.js')}}"></script>
+  <script>
+    function adicionar_redes(){
 
+        var x = document.createElement("input");
+        x.setAttribute("type", "text");
+        x.setAttribute("name", "title[]");
+        x.setAttribute("placeholder", "Titulo: youtube, instagram...");
+        x.setAttribute("class", "form-control form-control-lg mb-3");
+        document.getElementById("_redes").appendChild(x);
+        var y = document.createElement("input");
+        y.setAttribute("type", "text");
+        y.setAttribute("name", "url[]");
+        y.setAttribute("placeholder", "Link: youtube.com/user");
+        y.setAttribute("class", "form-control form-control-lg mb-3");
+        document.getElementById("_redes").appendChild(y);
+        var z = document.createElement("input");
+        z.setAttribute("type", "text");
+        z.setAttribute("name", "username[]");
+        z.setAttribute("placeholder", "Usuario: user");
+        z.setAttribute("class", "form-control form-control-lg mb-3");
+        document.getElementById("_redes").appendChild(z);
+    }
+  </script>
 </body>
 
 </html>
