@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Domain;
 use App\Models\Post;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use GuzzleHttp\Client;
@@ -14,13 +15,15 @@ class DomainController extends Controller
     {
         $user_id = Auth::id();
         $datos = Domain::where('user_id',$user_id)->get();
-        return view('Domains.index',compact('datos'));
+        $users = User::all();
+        return view('Domains.index',compact('datos','users'));
     }
     public function store(Request $request)
     {
          $request->validate([
             'name'=>'required',
-            'url'=>'required|unique:domains,url'
+            'url'=>'required|unique:domains,url',
+            "user_id"=>'required'
         ]);
 
         $user_id = Auth::id();
@@ -29,7 +32,7 @@ class DomainController extends Controller
 
         $url = $request->url;
         $url_http = $protocol.$url;
-        $datos = ['user_id' => $user_id,'name'=>$request->name,'url'=>$url,'url_http'=>$url_http];
+        $datos = ['user_id' => $request->user_id,'name'=>$request->name,'url'=>$url,'url_http'=>$url_http];
         $domain = Domain::create($datos);
 
         $URL = $url_http."/wp-content/plugins/mjcdd/json.php";

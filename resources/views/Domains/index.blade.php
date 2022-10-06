@@ -20,6 +20,7 @@
                                 <tr>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nome</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">URL</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Usuario</th>
                                     <th class="text-secondary opacity-7"></th>
                                 </tr>
                             </thead>
@@ -43,6 +44,9 @@
                                         </td>
                                         <td>
                                             <p class="text-xs font-weight-bold mb-0">{{ $dato->url }}</p>
+                                        </td>
+                                        <td>
+                                            <p class="text-xs font-weight-bold mb-0">{{ $dato->user->name }}</p>
                                         </td>
                                         <td class="align-middle">
 
@@ -83,6 +87,16 @@
                                 <div class="form-group">
                                     <label for="url" class="form-label text-dark">URL: </label>
                                     <input type="text" name="url" class="form-control form-control-lg" placeholder="dominio.com/">
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="url" class="form-label text-dark">URL: </label>
+                                    <select class="form-select form-select-lg" name="user_id">
+                                        @foreach ($users as $user )
+                                            <option value="{{ $user->id }}">{{ $user->name ." - ".$user->email  }}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
                         </div>
