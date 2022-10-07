@@ -64,4 +64,4 @@ Route::middleware(['auth'])->group(function () {
     Route::get("/logout",[LoginController::class,'logout'])->name("logout");
 });
 
-Route::get('/reports',[ReportsController::class,'getReports']);
+//Route::get('/reports',[ReportsController::class,'getReports']);
