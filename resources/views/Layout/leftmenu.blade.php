@@ -106,7 +106,6 @@
           </div>
         </div>
       </div>
-      <a href="mailto:derlisruizdiazr@gmail.com" target="_blank" class="btn btn-dark btn-sm w-100 mb-3">E-mail</a>
-
+      <a href="mailto:suporte@joinads.me" target="_blank" class="btn btn-dark btn-sm w-100 mb-3">E-mail</a>
     </div>
   </aside>
