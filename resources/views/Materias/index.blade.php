@@ -20,6 +20,7 @@
                             <tr>
                                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Titulo</th>
                                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Descriçao</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Usuario</th>
                                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Status</th>
                                 <th class="text-secondary opacity-7"></th>
                             </tr>
@@ -44,6 +45,9 @@
                                     </td>
                                     <td>
                                         <p class="text-xs font-weight-bold mb-0">{{ $dato->description }}</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-xs font-weight-bold mb-0">{{ $dato->user->name }}</p>
                                     </td>
                                     <td>
                                         @if($dato->status)

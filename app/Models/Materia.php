@@ -10,4 +10,8 @@ class Materia extends Model
     use HasFactory;
     protected $table = "materias";
     protected $fillable = ['user_id','title','description','status'];
+
+    public function user (){
+        return $this->belongsTo(User::class,'user_id');
+    }
 }

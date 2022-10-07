@@ -12,7 +12,10 @@ class MateriaController extends Controller
     public function index()
     {
         $user_id = Auth::id();
-        $datos = Materia::where('user_id',$user_id)->get();
+        $datos = Auth::user()->type == '1' ?
+        Materia::all()
+        :
+         Materia::where('user_id',$user_id)->get();
         return view('Materias.index',compact('datos'));
     }
 

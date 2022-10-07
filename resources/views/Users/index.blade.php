@@ -1,6 +1,6 @@
 @extends('Layout.app')
-@section('title', 'Domains')
-@section('title2', 'Domains')
+@section('title', 'Usuarios')
+@section('title2', 'Usuarios')
 @section('main')
 
 
