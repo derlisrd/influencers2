@@ -39,7 +39,7 @@ class DomainController extends Controller
         $client = new Client();
         $response = $client->get($URL);
         $array = json_decode($response->getBody(),true);
-        $datas = ($array['item']);
+        $datas = array_reverse($array['item']);
           foreach($datas as $d){
             $newpost = [
                 'user_id'=>$user_id,

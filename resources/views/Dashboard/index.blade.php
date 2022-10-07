@@ -17,7 +17,7 @@
                 <h5 class="font-weight-bolder">
                   {{ $today_values ?? 0 }}
                 </h5>
-                <p class="mb-0">
+                <p class="mb-0 text-sm">
                   Ingresos de hoje
                 </p>
               </div>
@@ -41,7 +41,7 @@
                 <h5 class="font-weight-bolder">
                   {{ $impressions ?? 0 }}
                 </h5>
-                <p class="mb-0">
+                <p class="mb-0 text-sm">
                   Ultimas impressoes do día
                 </p>
               </div>
@@ -65,7 +65,7 @@
                 <h5 class="font-weight-bolder">
                   {{ $post_count ?? 0 }}
                 </h5>
-                <p class="mb-0">
+                <p class="mb-0 text-sm">
                   Quantidade de Post
                 </p>
               </div>
@@ -89,7 +89,7 @@
                 <h5 class="font-weight-bolder">
                   {{ $last_payment ?? 0 }}
                 </h5>
-                <p class="mb-0">
+                <p class="mb-0 text-sm">
                   Ultimo saque feito
                 </p>
               </div>
