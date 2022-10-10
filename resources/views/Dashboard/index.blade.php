@@ -169,32 +169,20 @@
         <div class="table-responsive">
           <table class="table align-items-center ">
             <tbody>
-              @foreach ($por_redes as $redes )
+              @foreach ($social_network_revenue as $revenue )
               <tr>
                 <td class="w-30">
                   <div class="d-flex px-2 py-1 align-items-center">
                     <div class="ms-4">
                       <p class="text-xs font-weight-bold mb-0">Rede:</p>
-                      <h6 class="text-sm mb-0">{{ $redes->title }}</h6>
+                      <h6 class="text-sm mb-0">{{ $revenue['title'] }}</h6>
                     </div>
                   </div>
                 </td>
                 <td>
                   <div class="text-center">
                     <p class="text-xs font-weight-bold mb-0">Receita:</p>
-                    <h6 class="text-sm mb-0">2500</h6>
-                  </div>
-                </td>
-                <td>
-                  <div class="text-center">
-                    <p class="text-xs font-weight-bold mb-0">Value:</p>
-                    <h6 class="text-sm mb-0">$230,900</h6>
-                  </div>
-                </td>
-                <td class="align-middle text-sm">
-                  <div class="col text-center">
-                    <p class="text-xs font-weight-bold mb-0">Bounce:</p>
-                    <h6 class="text-sm mb-0">29.9%</h6>
+                    <h6 class="text-sm mb-0">{{ $revenue['revenue'] }} $</h6>
                   </div>
                 </td>
               </tr>

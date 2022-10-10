@@ -28,6 +28,15 @@ class DashboardController extends Controller
         $last_posts = Post::where('user_id',$user_id)->orderBy('id', 'desc')->limit(5)->get();
 
         $por_redes = SocialNetwork::where('user_id',$user_id)->get();
+        $social_network_revenue = [];
+        foreach($por_redes as $red){
+            $info = Report::where('user_id',$user_id)->where('criteria_value',$red->title)->sum('revenue');
+            array_push($social_network_revenue,[
+                "title"=>$red->title,
+                "revenue"=>$info
+            ]);
+        }
+
 
         $last_7_days = [];
         for($i=0;$i<=7;$i++){
@@ -44,7 +53,8 @@ class DashboardController extends Controller
             "last_payment"=>$last_payment,
             "last_posts"=>$last_posts,
             "por_redes"=>$por_redes,
-            "last_7_days"=>array_reverse($last_7_days)
+            "last_7_days"=>array_reverse($last_7_days),
+            "social_network_revenue"=>$social_network_revenue
         ];
 
         return view('Dashboard.index',$data);
