@@ -246,7 +246,7 @@
         var d = new Date();
         ultimos_dias.push(d.getDate() - i )
     }
-    var results = [0,60,0,100,0,0,90];
+    var results = [@foreach ($last_7_days as $day ){{ $day . "," }}@endforeach]
 
 
     var ctx1 = document.getElementById("chart-line").getContext("2d");

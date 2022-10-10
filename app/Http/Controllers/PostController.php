@@ -13,7 +13,7 @@ class PostController extends Controller
 
     public function index(){
         $user_id = Auth::id();
-        $posts = Post::where('user_id',$user_id)->get();
+        $posts = Post::where('user_id',$user_id)->orderBy('id','DESC')->get();
         $links = SocialNetwork::where('user_id',$user_id)->get();
         return view('Posts.index',compact('posts','links'));
     }

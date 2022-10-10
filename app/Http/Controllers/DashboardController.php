@@ -29,13 +29,22 @@ class DashboardController extends Controller
 
         $por_redes = SocialNetwork::where('user_id',$user_id)->get();
 
+        $last_7_days = [];
+        for($i=0;$i<=7;$i++){
+            $date =  date('Y-m-d', strtotime("-$i days"));
+            $info = Report::where('user_id',$user_id)->where('date',$date)->sum('revenue');
+            array_push($last_7_days,$info);
+        }
+
+
         $data = [
             "today_values"=> $today_report ?? 0,
             "post_count"=>$post_count,
             "impressions"=>$today_impressions ?? 0,
             "last_payment"=>$last_payment,
             "last_posts"=>$last_posts,
-            "por_redes"=>$por_redes
+            "por_redes"=>$por_redes,
+            "last_7_days"=>array_reverse($last_7_days)
         ];
 
         return view('Dashboard.index',$data);
