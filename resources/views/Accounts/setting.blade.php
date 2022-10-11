@@ -4,7 +4,7 @@
 @section('main')
 
 
-<form method="post" action="{{ route('setting_store') }}">
+<form method="post" action="{{ route('setting_store') }}" enctype="multipart/form-data">
     <input type="hidden" name="id" value="{{ $data->id ?? '' }}" />
     @csrf
     <div class="card">
@@ -42,7 +42,7 @@
                 <div class="col-md-12">
                     <div class="form-group">
                         <label for="tel" class="form-label text-dark">Tel: </label>
-                        <input name="tel" value="{{ $data->tel ?? '' }}" class="form-control form-control-lg" placeholder="Documento">
+                        <input name="tel" value="{{ $data->tel ?? '' }}" class="form-control form-control-lg" placeholder="Tel">
                     </div>
                 </div>
                 <div class="col-md-12">
@@ -61,6 +61,15 @@
                     <div class="form-group">
                         <label for="raveshare" class="form-label text-dark">Raveshare: % </label>
                         <input name="raveshare" type="number" value="{{ $data->raveshare ?? '' }}" class="form-control form-control-lg" placeholder="Raveshare">
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label for="image" class="form-label text-dark">Logo: </label>
+                        @isset($data->image)
+                            <img src='{{ $data->image }}' width="200" />
+                        @endisset
+                        <input name="image" type="file"  class="form-control form-control-lg" >
                     </div>
                 </div>
                 <div class="col-md-12">

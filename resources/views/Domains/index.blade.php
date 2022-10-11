@@ -91,7 +91,7 @@
                             </div>
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label for="url" class="form-label text-dark">URL: </label>
+                                    <label for="url" class="form-label text-dark">Para usuario: </label>
                                     <select class="form-select form-select-lg" name="user_id">
                                         @foreach ($users as $user )
                                             <option value="{{ $user->id }}">{{ $user->name ." - ".$user->email  }}</option>

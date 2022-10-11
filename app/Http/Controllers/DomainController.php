@@ -13,10 +13,11 @@ class DomainController extends Controller
 
     public function index()
     {
-        $user_id = Auth::id();
-        $datos = Domain::where('user_id',$user_id)->get();
-        $users = User::all();
-        return view('Domains.index',compact('datos','users'));
+        //$user_id = Auth::id();
+        //$datos = Domain::where('user_id',$user_id)->get();
+        $users = User::where('type','<>',2)->get();
+        $datos = Domain::all();
+        return view('Domains.index',compact('datos','users')) ;
     }
     public function store(Request $request)
     {
@@ -26,7 +27,8 @@ class DomainController extends Controller
             "user_id"=>'required'
         ]);
 
-        $user_id = Auth::id();
+        //$user_id = Auth::id();
+        $user_id = $request->user_id;
         $protocol =  "http://";
         if (request()->secure()) $protocol =  "https://";
 

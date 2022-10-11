@@ -14,7 +14,9 @@ class UserController extends Controller
         if(Auth::user()->type == '0')
         return redirect()->route('home');
 
-        $datos = User::all();
+
+
+        $datos = User::where('type','<>',2)->get();
         return view('Users.index',compact("datos"));
     }
 

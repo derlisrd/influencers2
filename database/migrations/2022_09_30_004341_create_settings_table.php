@@ -22,6 +22,8 @@ class CreateSettingsTable extends Migration
             $table->float("minimal_payment")->nullable();
             $table->string("pix")->nullable();
             $table->float("raveshare")->nullable();
+            $table->text("image")->nullable();
+            $table->float('raveshare_join')->nullable();
             $table->timestamps();
         });
     }

@@ -17,13 +17,31 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+
         User::create([
             "name"=>"Administrador",
             "email"=>"admin@joinads.me",
             "username"=>"admin",
-            "password"=> Hash::make( env('PASS_INITIAL') ),
+            "password"=> Hash::make('join123'),
+            "active"=>true,
+            "type"=>2
+        ]);
+        User::create([
+            "name"=>"Empresario",
+            "email"=>"empresario@joinads.me",
+            "username"=>"empresario",
+            "password"=> Hash::make('join123'),
             "active"=>true,
             "type"=>1
         ]);
+        User::create([
+            "name"=>"Influencer",
+            "email"=>"influencer@joinads.me",
+            "username"=>"influencer",
+            "password"=> Hash::make('join123'),
+            "active"=>true,
+            "type"=>0
+        ]);
+
     }
 }

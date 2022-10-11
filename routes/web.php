@@ -7,6 +7,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\DomainController;
+use App\Http\Controllers\JoinController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\MateriaController;
 use App\Http\Controllers\PaymentController;
@@ -62,6 +63,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/user/desactive/{id}',[UserController::class,'user_desactive'])->name('user_desactive');
 
     Route::get("/logout",[LoginController::class,'logout'])->name("logout");
+
+
+    Route::get("/raveshare/join",[JoinController::class,'index'])->name('raveshare_join');
 });
 
 //Route::get('/reports',[ReportsController::class,'getReports']);

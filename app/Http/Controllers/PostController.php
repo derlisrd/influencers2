@@ -13,14 +13,17 @@ class PostController extends Controller
 
     public function index(){
         $user_id = Auth::id();
+
         $posts = Post::where('user_id',$user_id)->orderBy('id','DESC')->get();
+
         $links = SocialNetwork::where('user_id',$user_id)->get();
         return view('Posts.index',compact('posts','links'));
     }
 
 
-    public function store_all_post(){
+    public function store_all_post(Request $request){
         $user_id = Auth::id();
+
 
         $domains = Domain::where('user_id',$user_id)->get();
         foreach($domains as $domain){

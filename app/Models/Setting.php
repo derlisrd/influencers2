@@ -9,6 +9,6 @@ class Setting extends Model
 {
     use HasFactory;
     protected $table = "settings";
-    protected $fillable = ["user_id",'name','doc','pix','minimal_payment','raveshare'];
+    protected $fillable = ["user_id",'name','doc','pix','minimal_payment','raveshare','image'];
 
 }
