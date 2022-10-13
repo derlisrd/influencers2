@@ -12,6 +12,11 @@ class SocialNetworkController extends Controller
     public function socialnetworks(){
         $user_id = Auth::id();
         $datos = SocialNetwork::where('user_id',$user_id)->get();
+
+        if(Auth::user()->type=="1"){
+            $datos = SocialNetwork::all();
+        }
+
         return view('SocialNetworks.socialnetworks',compact('datos'));
     }
 

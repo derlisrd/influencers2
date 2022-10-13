@@ -51,6 +51,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/materias/{id}',[MateriaController::class,'edit'])->name('materia_edit');
     Route::post('/materia_update',[MateriaController::class,'update'])->name('materia_update');
     Route::get('/materia_destroy/{id}',[MateriaController::class,'destroy'])->name('materia_destroy');
+    Route::get('/materia/approve/{id}',[MateriaController::class,'approve'])->name('materia_approve');
 
     Route::get('/posts',[PostController::class,'index'])->name('posts');
 

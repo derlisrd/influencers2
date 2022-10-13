@@ -19,6 +19,19 @@ class MateriaController extends Controller
         return view('Materias.index',compact('datos'));
     }
 
+    public function approve(Request $request){
+
+        if(Auth::user()->type == '1'){
+
+            $id = $request->id;
+            $materia = Materia::find($id);
+            $materia->status = 1;
+            $materia->save();
+        }
+
+        return redirect()->route('materias');
+
+    }
 
     public function store(Request $request)
     {
