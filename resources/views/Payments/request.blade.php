@@ -10,13 +10,13 @@
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title">Saque</h5>
-                <input autofocus type="number" name="amount" class="form-control form-control-lg @error('amount') is-invalid @enderror"  placeholder="Monto" />
+                <input autofocus type="number" name="amount" class="form-control form-control-lg @error('amount') is-invalid @enderror"  placeholder="Valor" />
                 <p class="text-muted text-sm">Insira o monto a sacar</p>
                 @error('amount')
                    <span class="text-danger">{{ $message }}</span>
                 @enderror
 
-                <button type="submit" class="btn btn-primary">Enviar requisiçao</button>
+                <button type="submit" class="btn btn-primary">Enviar</button>
             </div>
         </div>
     </div>

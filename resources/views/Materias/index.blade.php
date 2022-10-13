@@ -60,7 +60,7 @@
                                     <td class="align-middle">
 
                                        @if(Auth::user()->type=="1" && $dato->status=='0')
-                                       <a href="{{ route('materia_approve',$dato->id)}}" class="badge badge-sm bg-info">Aprobar</a>
+                                       <a href="{{ route('materia_approve',$dato->id)}}" class="badge badge-sm bg-info">Aprovar</a>
                                        @endif
                                         <a href="{{ route('materia_edit',$dato->id)}}" class="badge badge-sm bg-success">Editar</a>
                                         <a href="{{ route('materia_destroy',$dato->id)}}" class="badge badge-sm bg-danger">Apagar</a>

@@ -81,13 +81,13 @@ class DashboardController extends Controller
             $revenue_own  = ($revenue_raw - $revenue_join)  * $raveshare_own / 100;
 
             $revenue_influencer = ($revenue_raw - $revenue_join) - $revenue_own;
-
+            $lucro= $revenue_own - $revenue_influencer;
             array_push($por_influencer,[
                 "name"=>$user->name,
                 "raveshare"=>$raveshare_own . " %",
                 "revenue"=>$revenue_own,
                 "influencer"=>$revenue_influencer,
-                "lucro"=>($revenue_own - $revenue_influencer)
+                "lucro"=> $lucro<0 ? $lucro * (-1) : $lucro
             ]);
         }
 

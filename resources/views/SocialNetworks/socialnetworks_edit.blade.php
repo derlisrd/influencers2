@@ -33,7 +33,7 @@
                     </div>
                 </div>
                 <div class="col-md-12">
-                    <button type="submit" class="btn btn-lg btn-primary">Guardar</button>
+                    <button type="submit" class="btn btn-lg btn-primary">Salvar</button>
                     <a href="{{ route('socialnetworks') }}"  class="btn btn-lg btn-default">Cancelar</a>
                 </div>
             </div>

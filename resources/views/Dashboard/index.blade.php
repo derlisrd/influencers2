@@ -18,7 +18,7 @@
                   {{ $today_values ?? 0 }}
                 </h5>
                 <p class="mb-0 text-sm">
-                  Ingresos de hoje
+                  Receita de hoje
                 </p>
               </div>
             </div>
