@@ -23,7 +23,7 @@ class CreateSettingsTable extends Migration
             $table->string("pix")->nullable();
             $table->float("raveshare")->nullable();
             $table->text("image")->nullable();
-            $table->float('raveshare_join')->nullable();
+            $table->float('raveshare_join')->default(0)->nullable();
             $table->timestamps();
         });
     }

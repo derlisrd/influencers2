@@ -60,9 +60,16 @@ class DashboardController extends Controller
         }
         $por_influencer = [];
         $users = User::where('type','0')->get();
+
+        $setting = Setting::where('user_id',$user_id)->get()->first();
+        if(!$setting){
+            return redirect()->route("setting");
+        }
+
+
         foreach($users as $user){
             $revenue_raw = Report::where('user_id',$user->id)->sum('revenue');
-            $setting = Setting::where('user_id',$user_id)->get()->first();
+
 
 
             $raveshare_join = $setting->raveshare_join;
