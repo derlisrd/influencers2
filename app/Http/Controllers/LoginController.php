@@ -29,6 +29,11 @@ class LoginController extends Controller
 
         if (Auth::attempt(['email' => $email, 'password' => $password, 'active' => 1])) {
             $request->session()->regenerate();
+            if(Auth::user()->type=="2")
+            {
+                return redirect()->route("raveshare_join");
+            }
+
             return redirect()->route('home');
         }
 

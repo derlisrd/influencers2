@@ -159,6 +159,7 @@
   </div>
 
   <div class="row mt-4">
+
     <div class="col-lg-7 mb-lg-0 mb-4">
       <div class="card ">
         <div class="card-header pb-0 p-3">
@@ -218,6 +219,64 @@
 
           </ul>
 
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <div class="row mt-4">
+
+    <div class="col-lg-7 mb-lg-0 mb-4">
+      <div class="card ">
+        <div class="card-header pb-0 p-3">
+          <div class="d-flex justify-content-between">
+            <h6 class="mb-2">Por influencer</h6>
+          </div>
+        </div>
+        <div class="table-responsive">
+          <table class="table align-items-center ">
+            <tbody>
+              @foreach ($por_influencer as $influencer )
+              <tr>
+                <td class="w-30">
+                  <div class="d-flex px-2 py-1 align-items-center">
+                    <div class="ms-4">
+                      <p class="text-xs font-weight-bold mb-0">Nome:</p>
+                      <h6 class="text-sm mb-0">{{ $influencer['name'] }}</h6>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                    <div class="text-center">
+                      <p class="text-xs font-weight-bold mb-0">Raveshare:</p>
+                      <h6 class="text-sm mb-0">{{ $influencer['raveshare'] }} </h6>
+                    </div>
+                  </td>
+                <td>
+                  <div class="text-center">
+                    <p class="text-xs font-weight-bold mb-0">Receita:</p>
+                    <h6 class="text-sm mb-0">{{ $influencer['revenue'] }} $</h6>
+                  </div>
+                </td>
+                <td>
+                    <div class="text-center">
+                      <p class="text-xs font-weight-bold mb-0">Influencer:</p>
+                      <h6 class="text-sm mb-0">{{ $influencer['influencer'] }} $</h6>
+                    </div>
+                  </td>
+                <td>
+                    <div class="text-center">
+                      <p class="text-xs font-weight-bold mb-0">Lucro:</p>
+                      <h6 class="text-sm mb-0">{{ $influencer['lucro'] }} $</h6>
+                    </div>
+                  </td>
+              </tr>
+              @endforeach
+            </tbody>
+          </table>
         </div>
       </div>
     </div>

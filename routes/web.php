@@ -66,6 +66,7 @@ Route::middleware(['auth'])->group(function () {
 
 
     Route::get("/raveshare/join",[JoinController::class,'index'])->name('raveshare_join');
+    Route::post("/raveshare/join",[JoinController::class,'store'])->name('raveshare_join_store');
 });
 
 //Route::get('/reports',[ReportsController::class,'getReports']);

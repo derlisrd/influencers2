@@ -4,7 +4,7 @@
       <a class="navbar-brand m-0" href="{{ route('home') }}" >
 
         <span class="ms-1 font-weight-bold">
-            <img src="{{ \App\Models\Setting::first()->image ?? 'https://www.instagram.com/static/images/web/logged_out_wordmark.png/7a252de00b20.png' }}" width="40" />
+            <img src="{{ \App\Models\Setting::first()->image ?? URL('logo.png') }}" width="150" />
         </span>
       </a>
     </div>
